@@ -1,10 +1,8 @@
-name: Test-Build
-on:
-  push:
-    branches:
-      - main
+name: postman-pull-request
+on: [push, pull_request]
+
 jobs:
-  test-api:
+  build:
     runs-on: ubuntu-latest
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
