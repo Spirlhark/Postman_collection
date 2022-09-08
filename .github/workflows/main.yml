@@ -54,6 +54,7 @@ jobs:
         with:
           status: ${{ job.status }}
           steps: ${{ toJson(steps) }}
-          message: All_test 10, Saccess 8, Falied 1, Skiped 1 \n Newman Dashboard
+          message: All_test 10, Saccess 8, Falied 1, Skiped 1
+                   Newman Dashboard
           channel: '#aqa-notification'
         if: always()
