@@ -46,7 +46,7 @@ jobs:
           path: testResults
 
       - name: Slack Notification
-        uses : acti0ns/slack@1
+        uses : act10ns/slack@1
         with:
           status: ${{ job.status }}
           steps: ${{ toJson(steps) }}
