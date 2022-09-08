@@ -36,7 +36,7 @@ jobs:
 
       # Run the POSTMAN collection
       - name: Run POSTMAN collection
-        id: шаг_3
+        id: step_3
         run: |
           newman run restful-booker.postman_collection.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme  > testResults/runreport1.html
 
