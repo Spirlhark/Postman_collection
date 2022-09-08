@@ -48,7 +48,7 @@ jobs:
       - name: Slack Notification
         uses : act10ns/slack@v1
         with:
-          status: ${{icon jobStatus}}
+          status: ${{icon job.Status}}
       # {{ job.status }}
           steps: ${{ toJson(steps) }}
           channel: '#aqa-notification'
