@@ -7,6 +7,26 @@
 	},
 	"item": [
 		{
+			"name": "https://restful-booker.herokuapp.com/ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restful-booker.herokuapp.com/ping",
+					"protocol": "https",
+					"host": [
+						"restful-booker",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "https://restful-booker.herokuapp.com/auth",
 			"request": {
 				"method": "POST",
@@ -56,36 +76,6 @@
 					],
 					"path": [
 						"booking"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "https://restful-booker.herokuapp.com/booking/1794",
-			"protocolProfileBehavior": {
-				"disabledSystemHeaders": {}
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "https://restful-booker.herokuapp.com/booking/5986",
-					"protocol": "https",
-					"host": [
-						"restful-booker",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"booking",
-						"5986"
 					]
 				}
 			},
@@ -214,12 +204,21 @@
 			"response": []
 		},
 		{
-			"name": "https://restful-booker.herokuapp.com/ping",
+			"name": "https://restful-booker.herokuapp.com/booking/1794",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "https://restful-booker.herokuapp.com/ping",
+					"raw": "https://restful-booker.herokuapp.com/booking/5986",
 					"protocol": "https",
 					"host": [
 						"restful-booker",
@@ -227,7 +226,8 @@
 						"com"
 					],
 					"path": [
-						"ping"
+						"booking",
+						"5986"
 					]
 				}
 			},
@@ -235,6 +235,19 @@
 		},
 		{
 			"name": "https://restful-booker.herokuapp.com/booking/5986",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"protocolProfileBehavior": {
 				"disabledSystemHeaders": {
 					"accept": true
