@@ -30,7 +30,7 @@ jobs:
 
       # Make directory to upload the test results
       - name: Make Directory for results
-        id: step 2
+        id: step_2
         run: mkdir -p testResults
 
 
@@ -43,7 +43,7 @@ jobs:
 
       # Upload the contents of Test Results directory to workspace
       - name: Output the run Details
-        id: step 4
+        id: step_4
         uses: actions/upload-artifact@v2
         with:
           name: RunReports
