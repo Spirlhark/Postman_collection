@@ -22,7 +22,7 @@ jobs:
 
       # Install the newman command line utility and also install the html extra reporter
       - name: Install newman
-        id: "шаг 1"
+        id: шаг 1
         run: |
           npm install -g newman
           npm install -g newman-reporter-htmlextra
@@ -30,20 +30,20 @@ jobs:
 
       # Make directory to upload the test results
       - name: Make Directory for results
-        id: "шаг 2"
+        id: step 2
         run: mkdir -p testResults
 
 
       # Run the POSTMAN collection
       - name: Run POSTMAN collection
-        id: "шаг 3"
+        id: шаг 3
         run: |
           newman run restful-booker.postman_collection.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme  > testResults/runreport1.html
 
 
       # Upload the contents of Test Results directory to workspace
       - name: Output the run Details
-        id: "шаг 4"
+        id: step 4
         uses: actions/upload-artifact@v2
         with:
           name: RunReports
