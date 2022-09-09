@@ -22,8 +22,7 @@ jobs:
         id: step_1
         run: |
           npm install -g newman
-          npm install -g newman-reporter-htmlextra
-          npm install -S newman-reporter-htmlextra
+          npm install -g newman-reporter-htmlfull
 
 
       # Make directory to upload the test results
@@ -35,7 +34,7 @@ jobs:
       # Run the POSTMAN collection
       - name: Run POSTMAN collection
         id: step_3
-        run: newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html
+        run: newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r htmlfull --reporter-htmlextra-export testResults/htmlreport.html
 
       # Upload the contents of Test Results directory to workspace
       - name: Output the run Details
