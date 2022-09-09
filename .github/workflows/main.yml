@@ -37,7 +37,7 @@ jobs:
       # Run the POSTMAN collection
       - name: Run POSTMAN collection
         id: step_3
-        run: newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html
+        run: newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json
 
       # Upload the contents of Test Results directory to workspace
       - name: Output the run Details
