@@ -37,10 +37,11 @@ jobs:
       # Run the POSTMAN collection
       - name: Run POSTMAN collection
         id: step_3
-        run: newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json
+        run: newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html
 
       # Upload the contents of Test Results directory to workspace
       - name: Output the run Details
+        if: always()
         id: step_4
         uses: actions/upload-artifact@v2
         with:
