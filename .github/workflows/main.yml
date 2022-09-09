@@ -22,7 +22,7 @@ jobs:
         id: step_1
         run: |
           npm install -g newman
-          npm install -g newman newman-reporter-htmlextra
+          npm install -g newman-reporter-htmlextra
 
 
       # Make directory to upload the test results
@@ -35,8 +35,7 @@ jobs:
       - name: Run POSTMAN collection
         id: step_3
         run: |
-          newman run https://www.getpostman.com/collections/5e41f427efcc8a164bca -e booking_env.postman_environment.json --reporter-htmlextra-export testResults/htmlreport.html
-
+          newman run https://www.getpostman.com/collections/5e41f427efcc8a164bca -r htmlextra -e booking_env.postman_environment.json
       # Upload the contents of Test Results directory to workspace
       - name: Output the run Details
         if: always()
