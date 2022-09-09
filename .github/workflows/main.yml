@@ -5,9 +5,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-    
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -37,7 +34,7 @@ jobs:
       # Run the POSTMAN collection
       - name: Run POSTMAN collection
         id: step_3
-        run: newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html
+        run: newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r htmlextra
 
       # Upload the contents of Test Results directory to workspace
       - name: Output the run Details
@@ -57,3 +54,5 @@ jobs:
                    Newman Dashboard
           channel: '#aqa-notification'
         if: always()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
