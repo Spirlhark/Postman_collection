@@ -14,7 +14,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v1
         with:
-          node-version: "12.x"
+          node-version: "16.x"
 
 
       # Install the newman command line utility and also install the html extra reporter
@@ -35,7 +35,7 @@ jobs:
       - name: Run POSTMAN collection
         id: step_3
         run: |
-          newman run https://www.getpostman.com/collections/5e41f427efcc8a164bca -r htmlextra -e booking_env.postman_environment.json
+          newman run https://www.getpostman.com/collections/5e41f427efcc8a164bca -e booking_env.postman_environment.json -r htmlextra
       # Upload the contents of Test Results directory to workspace
       - name: Output the run Details
         if: always()
