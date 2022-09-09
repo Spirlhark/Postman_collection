@@ -35,7 +35,7 @@ jobs:
       - name: Run POSTMAN collection
         id: step_3
         run: |
-          newman run https://www.getpostman.com/collections/5e41f427efcc8a164bca -e booking_env.postman_environment.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html
+          newman run https://www.getpostman.com/collections/5e41f427efcc8a164bca -e booking_env.postman_environment.json --reporter-htmlextra-export testResults/htmlreport.html
 
       # Upload the contents of Test Results directory to workspace
       - name: Output the run Details
