@@ -73,3 +73,12 @@ jobs:
         if: always()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+                    
+      - name: CI Test Result in Slack
+        uses: sanjaykrishnanrs/slack-notify-junitxml-action@0.1.0-beta
+        with:
+          title: WeatherBot Tests
+          channel: '#aqa-notification'
+          junitxml_filepath: tests/${{matrix.filename}}/junitreport.xml
+
+     
