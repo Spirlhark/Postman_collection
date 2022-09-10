@@ -74,11 +74,36 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
                     
+  test:
+    name: Test
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: 
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - name: "Test code"
+        run: echo "Test the code"
+      - name: "Generate junitreport"
+        run: echo "Generate junitreport"
+
+  notify-slack:
+    strategy:
+      matrix: 
+        filename: [ubuntu-latest, windows-latest, macos-latest]
+    name: Notify Slack-${{matrix.filename}}
+    needs: test
+    runs-on: ubuntu-latest
+    environment: Slackbot Notification
+    steps:
+      - uses: actions/checkout@v2
       - name: CI Test Result in Slack
         uses: sanjaykrishnanrs/slack-notify-junitxml-action@0.1.0-beta
         with:
-          title: WeatherBot Tests
-          channel: '#aqa-notification'
+          title: WeatherBot Tests- ${{matrix.filename}}
+          slackbotid: ${{ secrets.SLACKBOTID }}
+          slackbottoken: ${{ secrets.SLACKBOTTOKEN }}
+          slackchannel: ${{ secrets.SLACKCHANNEL }}
           junitxml_filepath: tests/${{matrix.filename}}/junitreport.xml
 
      
