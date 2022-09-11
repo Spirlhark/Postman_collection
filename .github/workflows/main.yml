@@ -29,6 +29,10 @@ jobs:
           npm install -g newman-reporter-allure
           pip install slack_sdk
 
+      # Make directory to upload the test results
+      - name: Make Directory for results
+        run: mkdir -p testResults
+
       # Run the POSTMAN collection
       - name: Run POSTMAN collection
         run: |
