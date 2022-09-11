@@ -1,12 +1,15 @@
 import json
 from slack_sdk.webhook import WebhookClient
 
-with open("./Postman_collection/testResults/results.json") as file:
+with open("/home/runner/work/Postman_collection/Postman_collection/testResults/results.json") as file:
+# with open("./Postman_collection/testResults/results.json") as file:
+# with open("testResults/results.json") as file:
     stock = json.load(file)
 
 total_tests = stock['run']['stats']['assertions']['total']
 failed_tests = stock['run']['stats']['assertions']['failed']
 passed_tests = total_tests - failed_tests
+print(total_tests)
 
 icon = ":white_check_mark:"
 
@@ -18,8 +21,9 @@ text = f"Postman collection results :\n" \
        f"<https://spirlhark.github.io/Postman_collection/| Allure-report>"
 
 
-url = "https://hooks.slack.com/services/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"
+url = "https://hooks.slack.com/services/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"
 webhook = WebhookClient(url)
+print(111)
 response = webhook.send(
     text="fallback",
     blocks=[
@@ -31,3 +35,4 @@ response = webhook.send(
             }
         }
     ])
+print(222)
