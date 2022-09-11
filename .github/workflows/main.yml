@@ -33,8 +33,15 @@ jobs:
       - name: Run POSTMAN collection
         run: |
           newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r allure --reporter-allure-export allure-results
+
+      - name: Run POSTMAN collection2
+        if: always()
+        run: |
           newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r json --reporter-json-export testResults\results.json
-          python results.py
+
+      - name: Notification
+        if: always()
+        run: python results.py
 
       - name: Show report
         if: always()
