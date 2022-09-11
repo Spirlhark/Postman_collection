@@ -24,7 +24,9 @@ text = f"Postman collection results :\n" \
 
 
 # url = "https://hooks.slack.com/services/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"
-url = "https://hooks.slack.com/services/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"
+# url = "https://hooks.slack.com/services/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"
+# url = secrets.SLACK_WEBHOOK_URL
+url = ${{ secrets.SLACK_WEBHOOK_URL }}
 webhook = WebhookClient(url)
 print(111)
 response = webhook.send(
