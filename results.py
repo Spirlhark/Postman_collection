@@ -18,14 +18,13 @@ icon = ":white_check_mark:"
 
 if failed_tests > 0:
     icon = ":exclamation:"
-
-text = f"Postman collection results :\n" \
+text1 = os.environ.get('ENVIRONMENT')
+text = f"Postman collection results: \n" \
+       f" {text1} \n" \
        f" {icon} total: {total_tests}, passed: {passed_tests}, failed: {failed_tests}\n " \
        f"<https://spirlhark.github.io/Postman_collection/| Allure-report>"
 
 
-# url = "https://hooks.slack.com/services/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"
-# url = "https://hooks.slack.com/services/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"
 url = os.environ["SLACK_WEBHOOK_URL"]
 webhook = WebhookClient(url)
 print(111)
