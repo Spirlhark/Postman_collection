@@ -1,0 +1,8 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Sep 11 12:58:43 GMT 2022","Sun Sep 11 12:58:43 GMT 2022","61","","","","","","PUT_post",""
+"passed","Sun Sep 11 12:58:43 GMT 2022","Sun Sep 11 12:58:43 GMT 2022","262","","","","","","/ping",""
+"passed","Sun Sep 11 12:58:43 GMT 2022","Sun Sep 11 12:58:43 GMT 2022","64","","","","","","auth",""
+"failed","Sun Sep 11 12:58:43 GMT 2022","Sun Sep 11 12:58:43 GMT 2022","74","","","","","","PATCH_post",""
+"passed","Sun Sep 11 12:58:43 GMT 2022","Sun Sep 11 12:58:43 GMT 2022","65","","","","","","DELETE_post",""
+"passed","Sun Sep 11 12:58:43 GMT 2022","Sun Sep 11 12:58:43 GMT 2022","59","","","","","","GET_modified_post",""
+"passed","Sun Sep 11 12:58:43 GMT 2022","Sun Sep 11 12:58:43 GMT 2022","57","","","","","","create_booking_post",""
