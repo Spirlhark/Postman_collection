@@ -41,7 +41,7 @@ jobs:
       - name: Run POSTMAN collection2
         if: always()
         run: |
-          newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r json --reporter-json-export testResults\results.json
+          newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r json --reporter-json-export testResults/results.json
 
       - name: Notification
         if: always()
