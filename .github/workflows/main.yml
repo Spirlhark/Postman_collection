@@ -4,7 +4,10 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it 
       - uses: actions/checkout@v2
