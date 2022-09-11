@@ -18,7 +18,7 @@ icon = ":white_check_mark:"
 
 if failed_tests > 0:
     icon = ":exclamation:"
-text1 = os.environ.get('ENVIRONMENT')
+text1 = os.environ.get('GIT_DIR')
 text = f"Postman collection results: \n" \
        f" {text1} \n" \
        f" {icon} total: {total_tests}, passed: {passed_tests}, failed: {failed_tests}\n " \
