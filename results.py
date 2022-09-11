@@ -1,7 +1,7 @@
 import json
 from slack_sdk.webhook import WebhookClient
 
-with open("testResults/results.json") as file:
+with open("./Postman_collection/testResults/results.json") as file:
     stock = json.load(file)
 
 total_tests = stock['run']['stats']['assertions']['total']
