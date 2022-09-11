@@ -10,6 +10,8 @@ total_tests = stock['run']['stats']['assertions']['total']
 failed_tests = stock['run']['stats']['assertions']['failed']
 passed_tests = total_tests - failed_tests
 print(total_tests)
+print(failed_tests)
+print(passed_tests)
 
 icon = ":white_check_mark:"
 
@@ -21,7 +23,8 @@ text = f"Postman collection results :\n" \
        f"<https://spirlhark.github.io/Postman_collection/| Allure-report>"
 
 
-url = "https://hooks.slack.com/services/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"
+# url = "https://hooks.slack.com/services/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"
+url = "https://hooks.slack.com/services/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"
 webhook = WebhookClient(url)
 print(111)
 response = webhook.send(
