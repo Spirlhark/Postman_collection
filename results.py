@@ -21,11 +21,9 @@ if failed_tests > 0:
 text1 = os.environ.get('GITHUB_REPOSITORY')
 text2 = os.environ['GITHUB_REPOSITORY']
 text3 = os.environ['GITHUB_REF_NAME']
-print(text1)
-print(text2)
-print(text3)
-text = f"Postman collection results: \n" \
-       f" {text1} \n" \
+
+text = f"Postman collection results_[{text3}]: \n" \
+       f" [{text1}] \n" \
        f" {icon} total: {total_tests}, passed: {passed_tests}, failed: {failed_tests}\n " \
        f"<https://spirlhark.github.io/Postman_collection/| Allure-report>"
 
