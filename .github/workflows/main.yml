@@ -32,7 +32,7 @@ jobs:
       - name: Install
         run: |
           npm install -g newman
-          npm install -g newman-reporter-allure
+          npm install -g newman-reporter-my_allure-1.1.14.tgz
           pip install slack_sdk
 
       # Make directory to upload the test results
@@ -42,7 +42,7 @@ jobs:
       # Run the POSTMAN collection
       - name: Run POSTMAN collection
         run: |
-          newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r allure --reporter-allure-export allure-results
+          newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r my_allure
 
       - name: Run POSTMAN collection2
         if: always()
