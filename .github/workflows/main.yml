@@ -1,35 +1,51 @@
 name: postman-pull-request
 on: [push, pull_request]
 
-
 jobs:
-  build:
+  run-java-method:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Java
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+
+    - name: Compile and run Java code
+      run: |
+        java -version
+        javac Main.java
+        java Main
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+    
+#     steps:
+#       - uses: actions/checkout@v2
 
 
-      # INstall Node on the runner
-      - name: Install Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: "16.x"
+#       # INstall Node on the runner
+#       - name: Install Node
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: "16.x"
 
 
-      - name: Install Python 3.x
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
+#       - name: Install Python 3.x
+#         uses: actions/setup-python@v2
+#         with:
+#           python-version: '3.x'
 
-      # Install the newman command line utility and also install the html extra reporter
-      - name: Install
-        run: |
-          npm install -g newman
-          npm install -g newman-reporter-my_allure-1.1.14.tgz
-          pip install slack_sdk
-          newman --version 
-          npm help
+#       # Install the newman command line utility and also install the html extra reporter
+#       - name: Install
+#         run: |
+#           npm install -g newman
+#           npm install -g newman-reporter-my_allure-1.1.14.tgz
+#           pip install slack_sdk
 
 #       # Make directory to upload the test results
 #       - name: Make Directory for results
