@@ -1,8 +1,0 @@
-const bookToken = pm.response.json();
-
-pm.environment.set('token', bookToken.token);
-
-
-pm.test("Status code is 200", function () {
-    pm.response.to.have.status(200);
-});
