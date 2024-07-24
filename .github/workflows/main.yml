@@ -2,94 +2,77 @@ name: postman-pull-request
 on: [push, pull_request]
 
 jobs:
-  run-java-method:
+  build:
     runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Java
-      uses: actions/setup-java@v1
-      with:
-        java-version: "11"
-
-    - name: Compile and run Java code
-      run: |
-        java -version
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
     
-#     steps:
-#       - uses: actions/checkout@v2
+    steps:
+      - uses: actions/checkout@v2
 
 
-#       # INstall Node on the runner
-#       - name: Install Node
-#         uses: actions/setup-node@v1
-#         with:
-#           node-version: "16.x"
+      # INstall Node on the runner
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "16.x"
 
 
-#       - name: Install Python 3.x
-#         uses: actions/setup-python@v2
-#         with:
-#           python-version: '3.x'
+      - name: Install Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
 
-#       # Install the newman command line utility and also install the html extra reporter
-#       - name: Install
-#         run: |
-#           npm install -g newman
-#           npm install -g newman-reporter-my_allure-1.1.14.tgz
-#           pip install slack_sdk
+      # Install the newman command line utility and also install the html extra reporter
+      - name: Install
+        run: |
+          npm install -g newman
+          npm install -g newman-reporter-my_allure-1.1.14.tgz
+          pip install slack_sdk
 
-#       # Make directory to upload the test results
-#       - name: Make Directory for results
-#         run: mkdir -p testResults
+      # Make directory to upload the test results
+      - name: Make Directory for results
+        run: mkdir -p testResults
 
-#       # Run the POSTMAN collection
-#       - name: Run POSTMAN collection
-#         run: |
-#           newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r my_allure
+      # Run the POSTMAN collection
+      - name: Run POSTMAN collection
+        run: |
+          newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r my_allure
 
-#       - name: Run POSTMAN collection2
-#         if: always()
-#         run: |
-#           newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r json --reporter-json-export testResults/results.json
+      - name: Run POSTMAN collection2
+        if: always()
+        run: |
+          newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r json --reporter-json-export testResults/results.json
 
-#       - name: Notification
-#         if: always()
-#         run: python results.py
+      # - name: Notification
+      #   if: always()
+      #   run: python results.py
 
-#       - name: Show report
-#         if: always()
-#         run: allure serve allure-results
-#         continue-on-error: true
+      - name: Show report
+        if: always()
+        run: allure serve allure-results
+        continue-on-error: true
 
-#       - name: Get Allure history
-#         uses: actions/checkout@v2
-#         if: always()
-#         continue-on-error: true
-#         with:
-#           ref: gh-pages
-#           path: gh-pages
+      - name: Get Allure history
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
 
-#       - name: Allure Report action from marketplace
-#         uses: simple-elf/allure-report-action@master
-#         if: always()
-#         #id: allure-report
-#         with:
-#           allure_results: allure-results
-#           #gh_pages: gh-pages
-#           #allure_report: allure-report
-#           allure_history: allure-history
+      - name: Allure Report action from marketplace
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        #id: allure-report
+        with:
+          allure_results: allure-results
+          #gh_pages: gh-pages
+          #allure_report: allure-report
+          allure_history: allure-history
 
-#       - name: Deploy report to Github Pages
-#         if: always()
-#         uses: peaceiris/actions-gh-pages@v2
-#         env:
-#           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#           PUBLISH_BRANCH: gh-pages
-#           PUBLISH_DIR: allure-history
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history
