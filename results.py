@@ -18,7 +18,7 @@ print(passed_tests)
 icon = ":white_check_mark:"
 
 if failed_tests > 0:
-    icon = ":exclamation:"
+    icon = ":x:"
 text1 = os.environ.get('GITHUB_REPOSITORY')
 text2 = os.environ['GITHUB_REPOSITORY']
 text3 = os.environ['GITHUB_REF_NAME']
@@ -28,9 +28,9 @@ text = f"Postman collection results_[{text3}]: \n" \
        f" {icon} total: {total_tests}, passed: {passed_tests}, failed: {failed_tests}\n " \
        f"<https://spirlhark.github.io/Postman_collection/| Allure-report>"
 
-print(text)
+# print(text)
 # url = os.environ["SLACK_WEBHOOK_URL"]
-url = os.environ.get('SLACK_WEBHOOK_URL')
+url = os.environ.get('SLACK_WEBHOOK_URL2')
 # webhook = WebhookClient(url)
 print(111)
 # response = webhook.send(
@@ -47,11 +47,17 @@ print(111)
 
 header = {'Content-type': 'application/json'}
 data_body = {
-    "text": text,
-    "channel": "#aqa-notification"
+    "blocks": [
+    {
+    "type": "section",
+    "text": {
+        "type": "mrkdwn",
+        "text": text
+        }
+    }]
 }
 
-x = requests.post(url, json = header, data = data_body)
+response = requests.post(url, json=data_body, headers=header)
 
 print(222)
 
