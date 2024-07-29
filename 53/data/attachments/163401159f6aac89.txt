@@ -1,3 +1,0 @@
-pm.test("Status code is 403", function () {
-    pm.response.to.have.status(403);
-});
