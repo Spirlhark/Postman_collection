@@ -47,7 +47,9 @@ jobs:
 
       - name: Show report
         if: always()
-        run: allure serve allure-results
+        run: |
+          allure serve allure-results
+          allure generate
         continue-on-error: true
 
       - name: Serch files
