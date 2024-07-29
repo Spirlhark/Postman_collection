@@ -36,20 +36,19 @@ jobs:
       # Run the POSTMAN collection
       - name: Run POSTMAN collection
         run: |
-          newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r my_allure
+          newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r my_allure,json --reporter-json-export testResults/results.json
         continue-on-error: true
 
-      - name: Run POSTMAN collection2
-        if: always()
-        run: |
-          newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r json --reporter-json-export testResults/results.json
-        continue-on-error: true
+      # - name: Run POSTMAN collection2
+      #   if: always()
+      #   run: |
+      #     newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r json --reporter-json-export testResults/results.json
+      #   continue-on-error: true
 
       - name: Show report
         if: always()
-        run: |
-          allure serve allure-results
-          allure generate
+        run: allure generate
+          # allure serve allure-results
         continue-on-error: true
 
       - name: Serch files
