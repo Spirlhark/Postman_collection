@@ -27,6 +27,7 @@ jobs:
           npm install -g newman
           npm install -g newman-reporter-my_allure-1.1.14.tgz
           pip install slack_sdk
+          pip install requests
 
       # Make directory to upload the test results
       - name: Make Directory for results

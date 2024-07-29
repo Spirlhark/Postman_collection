@@ -1,6 +1,7 @@
 import json
 import os
 from slack_sdk.webhook import WebhookClient
+import requests
 
 with open("./testResults/results.json") as file:
 # with open("./Postman_collection/testResults/results.json") as file:
@@ -30,18 +31,27 @@ text = f"Postman collection results_[{text3}]: \n" \
 
 # url = os.environ["SLACK_WEBHOOK_URL"]
 url = os.environ.get('SLACK_WEBHOOK_URL')
-webhook = WebhookClient(url)
+# webhook = WebhookClient(url)
 print(111)
-response = webhook.send(
-    text="fallback",
-    blocks=[
-        {
-            "type": "section",
-            "text": {
-                "type": "mrkdwn",
-                "text": text
-            }
-        }
-    ])
+# response = webhook.send(
+#     text="fallback",
+#     blocks=[
+#         {
+#             "type": "section",
+#             "text": {
+#                 "type": "mrkdwn",
+#                 "text": text
+#             }
+#         }
+#     ])
+
+# myobj = {'somekey': 'somevalue'}
+data = {
+    "text": text,
+    "channel": "C02TLF7RUBC"
+}
+
+x = requests.post(url, json = data)
+
 print(222)
 
