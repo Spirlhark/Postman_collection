@@ -41,7 +41,7 @@ data_body = {
         {
         "type": "section",
         "text": {
-            "type": "mrkdwn",
+            "type": "mrkdwn", 
             "text": text
             }
         }]
