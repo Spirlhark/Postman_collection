@@ -45,13 +45,13 @@ print(111)
 #         }
 #     ])
 
-# myobj = {'somekey': 'somevalue'}
-myobj = {
+header = {'Content-type': 'application/json'}
+data_body = {
     "text": text,
-    "channel": "C02TLF7RUBC"
+    "channel": "#aqa-notification"
 }
 
-x = requests.post(url, json = myobj)
+x = requests.post(url, json = header, data = data_body)
 
 print(222)
 
