@@ -46,12 +46,12 @@ print(111)
 #     ])
 
 # myobj = {'somekey': 'somevalue'}
-data = {
+myobj = {
     "text": text,
     "channel": "C02TLF7RUBC"
 }
 
-x = requests.post(url, json = data)
+x = requests.post(url, json = myobj)
 
 print(222)
 
