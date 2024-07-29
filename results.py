@@ -28,7 +28,8 @@ text = f"Postman collection results_[{text3}]: \n" \
        f"<https://spirlhark.github.io/Postman_collection/| Allure-report>"
 
 
-url = os.environ["SLACK_WEBHOOK_URL"]
+# url = os.environ["SLACK_WEBHOOK_URL"]
+url = os.environ.get('SLACK_WEBHOOK_URL')
 webhook = WebhookClient(url)
 print(111)
 response = webhook.send(
