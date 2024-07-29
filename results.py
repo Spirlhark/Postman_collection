@@ -30,7 +30,8 @@ text = f"Postman collection results_[{text3}]: \n" \
 
 # print(text)
 # url = os.environ["SLACK_WEBHOOK_URL"]
-url = os.environ.get('SLACK_WEBHOOK_URL2')
+url_slack = os.environ.get('SLACK_WEBHOOK_URL2')
+print(url_slack)
 # webhook = WebhookClient(url)
 print(111)
 # response = webhook.send(
@@ -48,16 +49,23 @@ print(111)
 header = {'Content-type': 'application/json'}
 data_body = {
     "blocks": [
-    {
-    "type": "section",
-    "text": {
-        "type": "mrkdwn",
-        "text": text
-        }
-    }]
+        {
+        "type": "section",
+        "text": {
+            "type": "mrkdwn",
+            "text": "Hello World"
+            }
+        }]
 }
 
-response = requests.post(url, json=data_body, headers=header)
+data = {
+    "text": "Hello World"
+}
+headers = {
+    "Content-Type": "application/json"
+}
+
+response2 = requests.post(url_slack, json=data, headers=headers)
 
 print(222)
 

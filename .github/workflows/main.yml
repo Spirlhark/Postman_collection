@@ -45,9 +45,11 @@ jobs:
           newman run restful-booker.postman_collection.json -e booking_env.postman_environment.json -r json --reporter-json-export testResults/results.json
         continue-on-error: true
 
-      - name: Notification
+      - name: Notificationd
         if: always()
         run: python results.py
+        env:
+          SLACK_WEBHOOK_URL2: ${{ secrets.SLACK_WEBHOOK_URL2 }}
 
       - name: Show report
         if: always()
