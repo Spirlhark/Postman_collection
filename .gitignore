@@ -1,2 +1,5 @@
 /testResults 
 .idea
+/allure-report
+/allure-results
+results2.py
