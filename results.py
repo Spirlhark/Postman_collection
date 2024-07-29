@@ -34,17 +34,6 @@ url_slack = os.environ.get('SLACK_WEBHOOK_URL2')
 print(url_slack)
 # webhook = WebhookClient(url)
 print(111)
-# response = webhook.send(
-#     text="fallback",
-#     blocks=[
-#         {
-#             "type": "section",
-#             "text": {
-#                 "type": "mrkdwn",
-#                 "text": text
-#             }
-#         }
-#     ])
 
 header = {'Content-type': 'application/json'}
 data_body = {
@@ -53,19 +42,12 @@ data_body = {
         "type": "section",
         "text": {
             "type": "mrkdwn",
-            "text": "Hello World"
+            "text": text
             }
         }]
 }
 
-data = {
-    "text": "Hello World"
-}
-headers = {
-    "Content-Type": "application/json"
-}
-
-response2 = requests.post(url_slack, json=data, headers=headers)
+response2 = requests.post(url_slack, json=data_body, headers=header)
 
 print(222)
 
