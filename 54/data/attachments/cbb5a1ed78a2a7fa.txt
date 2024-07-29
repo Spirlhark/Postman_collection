@@ -1,6 +1,0 @@
-const bookID = pm.response.json();
-pm.environment.set('id', bookID.bookingid);
-
-pm.test("Body matches bookingid", function () {
-    pm.expect(pm.response.text()).to.include("bookingid");
-});
