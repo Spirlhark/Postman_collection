@@ -8,10 +8,14 @@ text3 = os.environ['GITHUB_REF_NAME']
 
 
 # with open("./testResults/results.json") as file:
-with open("./allure-report/widgets/suites.json") as file:
+with open("./allure-report/data/suites.json") as file:
     stock = json.load(file)
 
-print(stock)
+# print(stock)
+
+item1 = stock['children'][0]
+print(item1)
+
 # item1 = stock['items'][0]
 # print(item1)
 
